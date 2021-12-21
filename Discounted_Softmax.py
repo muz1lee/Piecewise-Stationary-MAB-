@@ -15,7 +15,7 @@ def monte_carlo_simulation_softmax_greedy(q_estimation, tau, epsilon=0.6, draw_f
     mc np.matrix: Monte Carlo matrix of dimension (draw, n_arms).
     traffic_ratio list[float]: 各个手臂的流量比例
     """
-    # tau = 100  # 目前tau的大小是根据腾讯视频推荐的场景定的，后面应作为可传入的超参
+    # tau = 100  
     # estimated_rewards = [arm.get('q_estimation') for arm in arms]
     best_count_each_arm = [0 for _ in q_estimation]
     mc = np.zeros(draw_frequency)
