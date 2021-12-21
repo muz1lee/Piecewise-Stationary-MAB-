@@ -1,5 +1,5 @@
 # Piecewise-Stationary-MAB
-This project was finished during my internship. It aims to handle with the issue of Non-Stationary MAB in real-time news recommendations.
+This is my first project during my internship. It aims to handle with the issue of Non-Stationary MAB in real-time news recommendations.
 
 ## Background 
 Multi-Arm-Bandit (MAB) is a classic problem that well demonstrates the exploration vs exploitation dilemma. This dilemma comes from the incomplete information : we need to gather enough information to make best overall decisions while keeping the risk under control. Comparing with A/B testing, it can handle with following issues:
@@ -40,7 +40,9 @@ For Non-Stationary / Piecewise-stationary MAB，we have three different methods:
 
 (3) Reduce the impact of past observation
 
-This project focus on the (3) method , implements Gaussian Thompson Sampling , Discounted Thompson Sampling, Epsilon Greedy , Discounted Epsilon Greedy, Softmax Greedy algorithms, and finally compare their performance based on regret. 
+This project focus on the (3) method , implements 6 different algorithms : Gaussian Thompson Sampling , Discounted Thompson Sampling, Epsilon Greedy , Discounted Epsilon Greedy, Softmax Greedy, UCB algorithms, and finally compare their performance based on accumulate regret. 
 
 
+## Notes
 
+Even though this project was done and has been implemented in our team , I will keep going optimizing these algorithm as well as fixing some mistakes. :) 
