@@ -10,4 +10,4 @@ In product design , Data Analysts will use A/B testing to test which version ( s
 
 2. Time-sensitive scenarios: In real-time news recommendation, we need find the best news as soon as possilble, or in some scenarios rewards  will change over time, and our system needs to make adjustmetns in a timely manner ;
 
-3.Insufficient / Limited traffic : Sicne there are many experiments to conduct while traffic is limited, we need to find a more efficient way to optimize and allocate traffic 
+3. Insufficient / Limited traffic : Sicne there are many experiments to conduct while traffic is limited, we need to find a more efficient way to optimize and allocate traffic 
