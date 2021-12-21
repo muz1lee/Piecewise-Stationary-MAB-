@@ -21,25 +21,9 @@ def DTS_alg(mean_matrix,decay,iterations,change_points):
             DTS_results.append(np.argmax(traffic_ratio_DTS[i]))
 
     return DTS_results,traffic_ratio_DTS
+
 def monte_carlo_simulation_DTS(Darms, decay,xbar_list=[list(),list(),list()],n_list=[list(),list(),list()],var_list=[list(),list(),list()],draw_frequency=10000):
-    """
-    Discounted Thompson Sampling进行蒙特卡洛采样
-
-    input:   
-    Darms - 臂的信息
-    draw_frequency - 采样的次数
-    ratio_decay - 防止由于均值差异大导致流量分配极端，所以将最好臂的(1-ratio_decay)的流量均分给其余非best arm的臂
-    xbar_list - 上一轮的 均值list 作为输入
-    n_list - 上一轮的 曝光list 作为输入
-    var_list - 上一轮的 方差list 作为输入
-
-
-    output:
-    new_traffic_ratio - 流量分配
-    xbar_list - 该轮更新的 均值list
-    n_list - 该轮更新的 曝光list
-    var_list - 该轮更新的 方差list
-    """
+    
     mc_DTS = np.zeros((draw_frequency, len(Darms)))
     for i in range(len(Darms)):
         DTSarm = Darms[i]
@@ -68,10 +52,7 @@ def monte_carlo_simulation_DTS(Darms, decay,xbar_list=[list(),list(),list()],n_l
     
     return new_traffic_ratio,xbar_list,n_list,var_list
 def get_post_nig_new(xbar,xvar,n,decay,xbar_list,n_list,var_list):
-    """
-    Discounted Thompson Sampling更新后验
 
-    """
     mu =0
     nu = 1
     alpha = 1
@@ -83,20 +64,19 @@ def get_post_nig_new(xbar,xvar,n,decay,xbar_list,n_list,var_list):
         p_mu = xbar
 
     else:
-        # 数据处理，得到每一轮的均值和每一轮的曝光，然后存储在xbar_lisr和n_list
+ 
         xbar_list.append((xbar*n - sum([xbar_list[i]*n_list[i] for i in range(len(n_list))]))/(n-sum(n_list)))
         n_list.append(n-sum(n_list))
 
-        #  得到discounted rate 的list
         decay_list=[xbar_list[i]*decay**(len(xbar_list)-1-i) for i in range(len(xbar_list))]
         
-        #  得到discounted rate * 曝光数的list
         decay_number_list=[n_list[i]*decay**(len(n_list)-1-i) for i in range(len(n_list))]
         p_mu = sum (decay_list[i]*decay_number_list[i] for i in range(len(n_list)))/sum(decay_number_list)
         var_list.append( (len(var_list)+1) * xvar -sum(var_list) )
         decay_var_list=[var_list[i]*decay**(len(var_list)-1-i) for i in range(len(var_list))]
     
         p_beta = beta + n*sum(decay_var_list)/(2*len(decay_var_list)) + n * nu / (n + nu) * (p_mu - mu)**2/2
+    
     p_nu = nu + n
     p_alpha = alpha + n/2
 
