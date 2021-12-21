@@ -149,18 +149,18 @@ def experiment(mean_matrix,decay_list,iterations,algorithms,change_points):
 
 
 if __name__ == '__main__' :
-    version_list= [0.1,0.5,1,5,10] # version list代表我们模拟的实验版本的数量
+    version_list= [0.1,0.5,1,5,10] 
     total_backet = 12000
-    decay_list = [0.99,0.9,0.8,0.7,0.6,0.5,0.3,0.1] # discounted rate list
-    change_points=[0.4,0.5] # 在N次迭代中， 40% * N 和 50%*N 两个迭代点将变换均值
-    iterations = 50 # 迭代的次数
+    decay_list = [0.99,0.9,0.8,0.7,0.6,0.5,0.3,0.1] 
+    change_points=[0.4,0.5] 
+    iterations = 50 
 
-    all_hits_results = dict() #保存所有arm在所有实验中的摇臂情况
-    all_traffic_ratio_results = dict() #保存所有arm在所有实验中的流量分配
-    all_regret_results=dict() #保存所有arm在所有实验中的遗憾值
+    all_hits_results = dict() 
+    all_traffic_ratio_results = dict() 
+    all_regret_results=dict() 
     mean_matrix_list = dict()
-    all_hits_list=dict() #保存所有arm在所有实验中是否选中最好的臂
-    all_actual_best=dict() ##保存所有实验中实际最好的臂
+    all_hits_list=dict() 
+    all_actual_best=dict() 
 
     # There are some algorithms you could choose 
     algorithms = ['TS','DTS','Discounted_epsilon_greedy','epsilon_greedy','softmax_greedy','epsilon_softmax']
@@ -168,25 +168,7 @@ if __name__ == '__main__' :
     for i in range(len(version_list)):
         print('__________________________start version {}`s training__________________________'.format(i))
         mean_matrix = np.random.rand(3,3) * version_list[i] 
-        """
-        # 随机生成(3,3)维度，范围为(0~1)的数字作为均值，version list的数将增大均值
-        #  row = 阶段数 , col = 臂的数量
-        #  也可以自行生成每一个实验的mean matrix
-        mean_matrix=
-        [
-        [mean_11,mean_12,mean_13],
-        [mean_21,mean_22,mean_23],
-        [mean_31,mean_32,mean_33],
-        ]
-
-        例如:
-            mean_matrix=
-        [[  1, 1.1, 1.2],
-        [1.4, 1.3,   2],
-        [1.1, 1.7, 0.9],
-        ]
-
-        """
+        
         mean_matrix_list[i] = mean_matrix 
         n_arms = len(mean_matrix[0])
         n_stages = len(mean_matrix)
