@@ -40,7 +40,7 @@ For Non-Stationary / Piecewise-stationary MAB，we have three different methods:
 
 (3) Reduce the impact of past observation
 
-This project focus on the (3) method , implements 6 different algorithms : Gaussian Thompson Sampling , Discounted Thompson Sampling, Epsilon Greedy , Discounted Epsilon Greedy, Softmax Greedy, UCB algorithms, and finally compare their performance based on accumulate regret. 
+This project focus on the (3) method , implements 6 different algorithms : Gaussian Thompson Sampling , Discounted Thompson Sampling, Epsilon Greedy , Discounted Epsilon Greedy, Softmax Greedy, UCB algorithms, and finally compares their performance based on accumulate regret. 
 
 ## Related Paper 
 Ratio-based DTS :  https://arxiv.org/pdf/1707.09727 
