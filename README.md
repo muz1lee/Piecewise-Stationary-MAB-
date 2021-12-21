@@ -1,5 +1,5 @@
 # Piecewise-Stationary-MAB
-This is my first project during my internship. It aims to handle with the issue of Non-Stationary MAB in real-time news recommendations.
+This is my first project during my internship. It aims to handle with the issue of Non-Stationary MAB in real-time news recommendations. Sensitive information / data structure have been deleted. Just for my personal study :) 
 
 ## Background 
 Multi-Arm-Bandit (MAB) is a classic problem that well demonstrates the exploration vs exploitation dilemma. This dilemma comes from the incomplete information : we need to gather enough information to make best overall decisions while keeping the risk under control. Comparing with A/B testing, it can handle with following issues:
