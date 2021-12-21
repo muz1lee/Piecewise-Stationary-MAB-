@@ -1,20 +1,7 @@
 import pandas as pd
 import numpy as np 
-# -- Discounted epsilon softmax
-def monte_carlo_simulation_softmax_greedy(q_estimation, tau, epsilon=0.6, draw_frequency=10000):
-    """
-    softmax_greedy算法的蒙特卡洛模拟
-    Args::
-    ------------
-    arms list[Arm]: 每个手臂的统计量
-    epsilon string: 代表explore的概率
-    draw_frequency int: 蒙特卡洛模拟的次数
 
-    Returns:
-    ------------
-    mc np.matrix: Monte Carlo matrix of dimension (draw, n_arms).
-    traffic_ratio list[float]: 各个手臂的流量比例
-    """
+def monte_carlo_simulation_softmax_greedy(q_estimation, tau, epsilon=0.6, draw_frequency=10000):
     # tau = 100  
     # estimated_rewards = [arm.get('q_estimation') for arm in arms]
     best_count_each_arm = [0 for _ in q_estimation]
@@ -28,7 +15,6 @@ def monte_carlo_simulation_softmax_greedy(q_estimation, tau, epsilon=0.6, draw_f
     threads = np.cumsum(softmax_p)
     for i in range(draw_frequency):
         if np.random.rand() < epsilon:
-            # explore的部分采用softmax
             r = np.random.rand()
             for arm_i in range(len(q_estimation)):
                 if r <= threads[arm_i]:
@@ -42,11 +28,7 @@ def monte_carlo_simulation_softmax_greedy(q_estimation, tau, epsilon=0.6, draw_f
     return [float(count) / draw_frequency for count in best_count_each_arm], mc,arm_choose
 def softmax_alg(mean_matrix,iterations,change_points):
 
-    """
-    epsilon_softmax算法
 
-
-    """
     n_arms = len(mean_matrix[0])
     traffic_ratio_softmax=[[1/n_arms for i in range(n_arms)]]
     total_softmax_set = [list() for i in range(n_arms)]
@@ -62,13 +44,8 @@ def softmax_alg(mean_matrix,iterations,change_points):
         traffic_ratio_softmax.append(traffic_ratio)
     
     return softmax_results,traffic_ratio_softmax
+
 def compute_traffic_mean_epsilon_softmax(arms,q_estimation,step_size,tau , epsilon):
-
-    """
-    epsilon_softmax算法的计算流量分配
-
-
-    """
     rewards = [arm.get('findex') for arm in arms]
 
     if not q_estimation:
