@@ -49,5 +49,5 @@ D-UCB: https://arxiv.org/pdf/0805.3415.pdf
 
 ## Notes
 
-Even though this project was done and has been implemented in our team , I will keep going optimizing these algorithm as well as fixing some mistakes. :) 
+Even though this project was done and has been implemented in our team , I will keep going optimizing these algorithms as well as fixing some mistakes. :) 
 I plan to add Detection Based algorithms into this project .  Coming Soon ... 
