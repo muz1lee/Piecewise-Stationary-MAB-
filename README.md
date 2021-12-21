@@ -1,5 +1,5 @@
 # Piecewise-Stationary-MAB
-This is my first project during my internship. It aims to handle with the issue of Non-Stationary MAB in real-time news recommendations. Sensitive information / data structure have been deleted. Just for my personal study :) 
+This project aims to handle with the issue of Non-Stationary MAB in real-time news recommendations. Sensitive functions / data have been deleted. Just for my personal study :) 
 
 ## Background 
 Multi-Arm-Bandit (MAB) is a classic problem that well demonstrates the exploration vs exploitation dilemma. This dilemma comes from the incomplete information : we need to gather enough information to make best overall decisions while keeping the risk under control. Comparing with A/B testing, it can handle with following issues:
@@ -12,9 +12,9 @@ Multi-Arm-Bandit (MAB) is a classic problem that well demonstrates the explorati
 
 ## Business Requirements 
 
-Our team want to increase the metric: CTR = Clicks / Impressions , in our Stocks News Recommendation.
+Our team want to increase the metric: CTR = Clicks / Impressions , in our real-time News Recommendation.
 
-Push Mechanism: push news to users from high activity to low activity sequentially, and adjust traffic every 5 minutes. For every round, the system would use MAB algorithm to explore / exploit and find a "best" arm, then allocate more traffic to this arm in next round. 
+Push Mechanism: push news to users from high activity to low activity sequentially, and adjust traffic every few minutes. For every round, the system would use MAB algorithm to explore / exploit and find a "best" arm, then allocate more traffic to this arm in next round. 
 
 
 ## Problems and Solutions 
