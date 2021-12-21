@@ -3,10 +3,6 @@ import pandas as pd
 import numpy as np 
 
 def get_post_nig_original(xbar,xvar,n):
-    """
-    Thompson Sampling更新后验
-
-    """
     mu =0
     nu = 1
     alpha = 1
@@ -19,18 +15,7 @@ def get_post_nig_original(xbar,xvar,n):
 
     return p_mu,p_nu,p_alpha,p_beta
 def monte_carlo_simulation(arms,draw_frequency=10000):
-    """
-    Thompson Sampling进行蒙特卡洛采样
 
-    input:   
-    arms - 臂的信息
-    draw_frequency - 采样的次数
-
-    output:
-    TSnew_traffic_ratio - 流量分配
-
-    """
-    
     mc_TS = np.zeros((draw_frequency, len(arms)))
     for i in range(len(arms)):
         TSarm = arms[i]
