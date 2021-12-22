@@ -12,7 +12,7 @@ Multi-Arm-Bandit (MAB) is a classic problem that well demonstrates the explorati
 
 ## Business Requirements 
 
-Our team want to increase the metric: CTR = Clicks / Impressions , in our real-time News Recommendation.
+Our team wants to increase the metric: CTR = Clicks / Impressions , in our real-time News Recommendation.
 
 Push Mechanism: push news to users from high activity to low activity sequentially, and adjust traffic every few minutes. For every round, the system would use MAB algorithm to explore / exploit and find a "best" arm, then allocate more traffic to this arm in next round. 
 
